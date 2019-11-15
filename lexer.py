@@ -113,27 +113,3 @@ class Lexer(object):
     def get_current_token(self):
         return self.current_token
 
-
-if __name__ == '__main__':
-
-    LITERAL_REGEX = r"(\w+)((\.)(\w+))?"
-    USE_STMT_REGEX = r"^(USE)\s+" + LITERAL_REGEX + r";$"
-    DELETE_STMT_REGEX = r"^(DELETE\s+FROM\s+)" + LITERAL_REGEX + r"\s*(WHERE\s+" + \
-                        LITERAL_REGEX + r"\s*([<>=])?\s*" + LITERAL_REGEX + r")*;$"
-
-    s1 = "USE database;"
-    s2 = "SELECT id, name, address FROM users WHERE is_customer IS NOT NULL ORDER BY created;"
-    s3 = 'INSERT INTO user_notes (id, user_id, note, created) VALUES (1, 1, "Note 1", NOW());'
-    s4 = "DELETE FROM database2.logs WHERE id < 1000;"
-
-    for s in [s1, s2, s3, s4]:
-        lx  = Lexer(s)
-
-        while True:
-            lx.next()
-            token = lx.get_current_token()
-            if token:
-                print(token)
-            else:
-                break
-
