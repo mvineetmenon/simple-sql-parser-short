@@ -5,3 +5,7 @@ Develop a handwritten parser that is able to parse SQL commands defined in the "
 
 Use one of the following programming languages for the task: C#, Java, Go, or TypeScript/JavaScript. You can upload the result on GitHub or simply send us an archive with the source code.
 
+Runs on
+=======
+
+* Python 3
